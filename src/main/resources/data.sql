@@ -1,0 +1,13 @@
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test00@gmail.com', '1234', 'test00', 10, '2022-05-30');
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test01@gmail.com', '1234', 'test01', 15, '2022-06-01');
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test02@gmail.com', '1234', 'test02', 20, '2022-06-02');
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test03@gmail.com', '1234', 'test03', 25, '2022-06-03');
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test04@gmail.com', '1234', 'test04', 30, '2022-06-04');
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test05@gmail.com', '1234', 'test05', 35, '2022-06-05');
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test06@gmail.com', '1234', 'test06', 40, '2022-06-06');
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test07@gmail.com', '1234', 'test07', 45, '2022-06-07');
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test08@gmail.com', '1234', 'test08', 50, '2022-06-08');
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test09@gmail.com', '1234', 'test09', 55, '2022-06-09');
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test10@gmail.com', '1234', 'test10', 60, '2022-06-10');
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test11@gmail.com', '1234', 'test11', 65, now());
+INSERT INTO member (email, password, name, age, created_at) VALUES ('test12@gmail.com', '1234', 'test12', 70, now());

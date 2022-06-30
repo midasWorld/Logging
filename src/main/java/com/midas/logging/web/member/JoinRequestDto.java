@@ -1,4 +1,4 @@
-package com.midas.logging.web;
+package com.midas.logging.web.member;
 
 import com.midas.logging.domain.member.Member;
 

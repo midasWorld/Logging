@@ -1,4 +1,4 @@
-package com.midas.logging.web;
+package com.midas.logging.web.member;
 
 import java.util.List;
 

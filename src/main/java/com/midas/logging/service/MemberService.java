@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.midas.logging.domain.member.Member;
 import com.midas.logging.domain.member.MemberRepository;
 import com.midas.logging.domain.member.MemberSearchDto;
+import com.midas.logging.error.NotFoundException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -38,5 +39,10 @@ public class MemberService {
 
 	public List<Member> findAll(MemberSearchDto search) {
 		return memberRepository.findAll(search);
+	}
+
+	public Member findById(Long id) {
+		return memberRepository.findById(id)
+			.orElseThrow(() -> new NotFoundException("Could not found member with memberId=" + id));
 	}
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <timestamp datePattern="yyyy-MM-dd" key="LOG_DATE"/>
+
+    <property name="LOG_PARENT_PATH" value="./log"/>
+    <property name="LOG_CHILD_ERROR" value="error"/>
+    <property name="LOG_CHILD_DB" value="db"/>
+    <property name="LOG_BACKUP" value="./log/backup"/>
+    <property name="MAX_HISTORY" value="30"/>
+    <property name="LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss}:%-4relative] %green([%thread]) %highlight(%-5level) %cyan(%logger{15}) %C.%M.%L :%msg%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_PARENT_PATH}/${LOG_CHILD_ERROR}/error-${LOG_DATE}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_BACKUP}/${LOG_CHILD_ERROR}/error-%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>${MAX_HISTORY}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="DB" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_PARENT_PATH}/${LOG_CHILD_DB}/db-${LOG_DATE}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_BACKUP}/${LOG_CHILD_DB}/db-%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>${MAX_HISTORY}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="ERROR" />
+    </root>
+    <logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
+        <appender-ref ref="DB" />
+    </logger>
+
+</configuration>
